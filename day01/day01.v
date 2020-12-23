@@ -28,7 +28,7 @@ fn part2(vals []int) ?int {
 
 fn main() {
 	lines := os.read_lines('input.txt') or { panic(err) }
-	vals := lines.filter(it != "").map(it.int())
+	vals := lines.filter(it != '').map(it.int())
 
 	if res1 := part1(vals) {
 		println('Part 1: $res1')
