@@ -66,9 +66,9 @@ fn main() {
 	batch := os.read_file('input.txt') or { panic(err) }
 	vals := batch.split('\n\n').filter(it != '').map(it + '\n')
 	// Note that a trailing '\n' was added to each "passport" in order
-	// to workaround a bug (#7522) the current version of the regex
+	// to workaround a limitation of the current version of the regex
 	// library, which does not match the '$' in '(\s|$)'. This way,
-	// using '\s' is enough.
+	// using '\s' is enough. See GitHub issue #7522
 
 	println('Part 1: ${part1(vals)}')
 	println('Part 2: ${part2(vals)}')
