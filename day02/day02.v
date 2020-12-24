@@ -1,11 +1,13 @@
 import os
 import regex
 
-const (format = r'(\d+)-(\d+) (.): (.+)')
+const (
+	format = r'(\d+)-(\d+) (.): (.+)'
+)
 
 struct PolicyItem {
-	min int
-	max int
+	min  int
+	max  int
 	char byte
 	pass string
 }
@@ -13,7 +15,7 @@ struct PolicyItem {
 fn parse_policy(policy string) PolicyItem {
 	mut re := regex.regex_opt(format) or { panic(err) }
 	re.match_string(policy)
-	return PolicyItem {
+	return PolicyItem{
 		min: re.get_group_by_id(policy, 0).int()
 		max: re.get_group_by_id(policy, 1).int()
 		char: re.get_group_by_id(policy, 2)[0]
@@ -47,7 +49,7 @@ fn part2(passwords []string) int {
 	for item in passwords {
 		policy := parse_policy(item)
 		if (policy.pass[policy.min - 1] == policy.char) !=
-		   (policy.pass[policy.max - 1] == policy.char) {
+			(policy.pass[policy.max - 1] == policy.char) {
 			count++
 		}
 	}
@@ -57,7 +59,6 @@ fn part2(passwords []string) int {
 fn main() {
 	lines := os.read_lines('input.txt') or { panic(err) }
 	vals := lines.filter(it != '')
-
 	println('Part 1: ${part1(vals)}')
 	println('Part 2: ${part2(vals)}')
 }

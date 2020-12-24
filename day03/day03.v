@@ -31,7 +31,7 @@ fn part2(gmap []string) i64 {
 		Point{3, 1},
 		Point{5, 1},
 		Point{7, 1},
-		Point{1, 2}
+		Point{1, 2},
 	]
 	for m in moves {
 		mut pos := Point{}
@@ -51,7 +51,6 @@ fn part2(gmap []string) i64 {
 fn main() {
 	lines := os.read_lines('input.txt') or { panic(err) }
 	gmap := lines.filter(it != '')
-
 	println('Part 1: ${part1(gmap)}')
 	println('Part 2: ${part2(gmap)}')
 }

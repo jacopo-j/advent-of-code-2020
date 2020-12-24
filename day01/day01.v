@@ -29,16 +29,14 @@ fn part2(vals []int) ?int {
 fn main() {
 	lines := os.read_lines('input.txt') or { panic(err) }
 	vals := lines.filter(it != '').map(it.int())
-
 	if res1 := part1(vals) {
 		println('Part 1: $res1')
-	} else { 
+	} else {
 		eprintln(err)
 	}
-
 	if res2 := part2(vals) {
 		println('Part 2: $res2')
-	} else { 
+	} else {
 		eprintln(err)
 	}
 }
