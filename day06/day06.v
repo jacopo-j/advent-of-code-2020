@@ -28,11 +28,7 @@ fn part2(vals []string) int {
 		for char in val {
 			if char != `\n` {
 				char_str := char.str() // maps can only have string keys
-				if !(char_str in seen) {
-					seen[char_str] = 1
-				} else {
-					seen[char_str]++
-				}
+				seen[char_str]++
 				if seen[char_str] == num_people {
 					count++
 				}
